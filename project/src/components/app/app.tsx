@@ -30,7 +30,7 @@ function App({ promoFilmData, filmsData }:AppProps): JSX.Element {
             </PrivateRoute>
           }
         />
-        <Route path={AppRoute.Film} element={<Film />} />
+        <Route path={AppRoute.Film} element={<Film filmsData={filmsData}/>} />
         <Route
           path={AppRoute.Review}
           element={
