@@ -1,18 +1,20 @@
 import { PromoFilmData } from '../../types/promo-film';
-import FilmCard from '../../components/film-card/film-card';
+import { FilmData } from '../../types/film';
+import FilmsList from '../../components/films-list/films-list';
 
 type MainProps = {
   promoFilmData: PromoFilmData;
+  filmsData: FilmData[];
 }
 
-function Main({ promoFilmData }:MainProps):JSX.Element {
-  const { filmName, genre, released } = promoFilmData;
+function Main({ promoFilmData, filmsData }:MainProps):JSX.Element {
+  const { filmName, genre, released, backgroundImage, posterImage } = promoFilmData;
 
   return (
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={backgroundImage} alt={filmName} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -41,7 +43,7 @@ function Main({ promoFilmData }:MainProps):JSX.Element {
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={posterImage} alt={`${filmName} poster`} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
@@ -108,9 +110,7 @@ function Main({ promoFilmData }:MainProps):JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <FilmCard />
-          </div>
+          <FilmsList filmsData={filmsData} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
