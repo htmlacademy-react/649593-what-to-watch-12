@@ -79,9 +79,6 @@ function Main({ promoFilmData }:MainProps):JSX.Element {
           <GenresList />
           <FilmsList />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
         </section>
 
         <footer className="page-footer">
